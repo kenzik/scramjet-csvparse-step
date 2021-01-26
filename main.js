@@ -30,7 +30,7 @@ StringStream
   .from(fs.createReadStream('./seq.csv') )
   .CSVParse(opts)
   .map( async (l) => {
-    return l;
+    return await l;
    })
   .each( (l) => {
     console.log(l);
