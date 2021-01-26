@@ -15,10 +15,16 @@ const opts = {
   delimiter: ','
 }
 
-if(args[0]==='worker') {
-  opts['step'] = (results, parser) => { return results }
+if(args[0]==='step') {
+  opts['step'] = (results, parser) => { return results };
+}
+
+if(args[0]==='step-worker') {
+  opts['step'] = (results, parser) => { return results };
   opts['worker'] = true;
 }
+
+console.log('Running with opts: ', opts);
 
 StringStream
   .from(fs.createReadStream('./seq.csv') )
